@@ -127,6 +127,7 @@ void startTests(struct limine_framebuffer *framebuffer)
     }
     printEmptyln(framebuffer);
     println(framebuffer, "------------------------------------------------ END FONT TEST SCREEN ------------------------------------------------", 0xffffff); // White text
+    printEmptyln(framebuffer);
     println(framebuffer, "----------------------------------------------- BEGIN COLOR TEST SCREEN -----------------------------------------------", 0xffffff); // White text
     printrect(framebuffer, 8, 8, 0xffffff);
     printrect(framebuffer, 8, 8, 0xff0000);
@@ -137,4 +138,12 @@ void startTests(struct limine_framebuffer *framebuffer)
     printrect(framebuffer, 8, 8, 0xee82ee);
     printEmptyln(framebuffer);
     println(framebuffer, "------------------------------------------------ END COLOR TEST SCREEN ------------------------------------------------", 0xffffff); // White text
+    printEmptyln(framebuffer);
+    println(framebuffer, "---------------------------------------------- BEGIN SCROLL TEST SCREEN ----------------------------------------------", 0xffffff);
+    for (int i = 0; i < 1000; i++)
+    {
+        println(framebuffer, "test", 0xffffff);
+    }
+    clear_screen(framebuffer, 0xffffff);
+    println(framebuffer, "----------------------------------------------- END SCROLL TEST SCREEN -----------------------------------------------", 0xffffff);
 }

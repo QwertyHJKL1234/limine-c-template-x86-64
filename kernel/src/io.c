@@ -156,6 +156,17 @@ void printrect(struct limine_framebuffer *fb, size_t width, size_t height, uint3
     cursor_x += width;
 }
 
+void clear_screen(struct limine_framebuffer *fb, uint32_t color) {
+    if (fb == NULL) {
+        return;
+    }
+    uint32_t *pixel_ptr = fb->address;
+    size_t num_pixels = fb->width * fb->height;
+    for (size_t i = 0; i < num_pixels; i++) {
+        pixel_ptr[i] = color;
+    }
+}
+
 void printchar(struct limine_framebuffer *fb, char c, uint32_t color) {
     if (fb == NULL) {
         return;
@@ -166,10 +177,6 @@ void printchar(struct limine_framebuffer *fb, char c, uint32_t color) {
         cursor_y += FONT_HEIGHT;
         return;
     }
-
-    /*if (c < 32 || c > 126) { // Handle unprintable characters (e.g., as a space)
-        c = ' ';
-    }*/
 
     for (size_t y = 0; y < FONT_HEIGHT; y++) {
         unsigned char row = font[(int)c][y];
