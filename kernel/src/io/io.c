@@ -29,7 +29,7 @@ size_t getScreenWidth(struct limine_framebuffer *fb) {
         // Handle the error, maybe return a default width or panic.
         return 80; // Return a default value (e.g., 80)
     }
-    return fb->width;
+    return fb->width / 8;
 }
 void clear_screen(struct limine_framebuffer *fb, uint32_t color) {
     if (fb == NULL) {
@@ -120,7 +120,7 @@ void printBreakLine(struct limine_framebuffer *fb, const char *str, uint32_t col
     buffer[buffer_index] = '\0'; // Null-terminate the string.
 
     // Print the formatted string
-    print(framebuffer_response.framebuffers[0], buffer, color);
+    println(fb, buffer, color);
 }
 void print(struct limine_framebuffer *fb, const char *str, uint32_t color) {
     while (*str) {

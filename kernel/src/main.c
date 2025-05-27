@@ -65,8 +65,7 @@ void kmain(void) {
 }
 void startTests(struct limine_framebuffer *framebuffer)
 {
-    //printBreakLine("TESTING", 0xffffff);
-    println(framebuffer, "----------------------------------------------- BEGIN FONT TEST SCREEN -----------------------------------------------", 0xffffff); // White text
+    printBreakLine(framebuffer, "BEGIN FONT TEST SCREEN", 0xffffff);
     bool red = false;
     for (int i = 0; i < sizeof(font) / sizeof(font[0]); ++i) {
         if (red)
@@ -77,10 +76,8 @@ void startTests(struct limine_framebuffer *framebuffer)
         red = !red;
     }
     printEmptyln(framebuffer);
-    println(framebuffer, "------------------------------------------------ END FONT TEST SCREEN ------------------------------------------------", 0xffffff); // White text
-    printEmptyln(framebuffer);
-    println(framebuffer, "----------------------------------------------- BEGIN COLOR TEST SCREEN -----------------------------------------------", 0xffffff); // White text
-    printrect(framebuffer, 8, 8, 0xffffff);
+    printBreakLine(framebuffer, "END FONT TEST SCREEN", 0xffffff);printEmptyln(framebuffer);
+    printBreakLine(framebuffer, "BEGIN COLOR TEST SCREEN", 0xffffff);printrect(framebuffer, 8, 8, 0xffffff);
     printrect(framebuffer, 8, 8, 0xff0000);
     printrect(framebuffer, 8, 8, 0xffA500);
     printrect(framebuffer, 8, 8, 0xffff00);
@@ -88,13 +85,13 @@ void startTests(struct limine_framebuffer *framebuffer)
     printrect(framebuffer, 8, 8, 0x0000ff);
     printrect(framebuffer, 8, 8, 0xee82ee);
     printEmptyln(framebuffer);
-    println(framebuffer, "------------------------------------------------ END COLOR TEST SCREEN ------------------------------------------------", 0xffffff); // White text
+    printBreakLine(framebuffer, "END COLOR TEST SCREEN", 0xffffff);
     printEmptyln(framebuffer);
-    println(framebuffer, "---------------------------------------------- BEGIN SCROLL TEST SCREEN ----------------------------------------------", 0xffffff);
+    printBreakLine(framebuffer, "BEGIN SCROLL TEST SCREEN", 0xffffff);
     for (int i = 0; i < 1000; i++)
     {
         println(framebuffer, "test", 0xffffff);
     }
     //clear_screen(framebuffer, 0xffffff);
-    println(framebuffer, "----------------------------------------------- END SCROLL TEST SCREEN -----------------------------------------------", 0xffffff);
+    printBreakLine(framebuffer, "END SCROLL TEST SCREEN", 0xffffff);
 }
