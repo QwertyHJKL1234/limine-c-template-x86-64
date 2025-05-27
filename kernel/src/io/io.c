@@ -10,7 +10,6 @@ static volatile size_t cursor_x = 0;
 static volatile size_t cursor_y = 0;
 #define FONT_WIDTH 8
 #define FONT_HEIGHT 8
-//struct limine_framebuffer_response framebuffer_response;
 void putpixel(struct limine_framebuffer *fb, size_t x, size_t y, uint32_t color) {
     if (x < fb->width && y < fb->height) {
         uint32_t *pixel_ptr = fb->address;
