@@ -3,7 +3,8 @@
 #include <stdbool.h>
 #include <limine.h>
 #include <memmgmt.h>
-#include <io.h>
+#include <io/io.h>
+#include <io/font.h>
 
 static volatile size_t cursor_x = 0;
 static volatile size_t cursor_y = 0;

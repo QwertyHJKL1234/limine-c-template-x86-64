@@ -2,7 +2,8 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <limine.h>
-#include <io.h>
+#include <io/io.h>
+#include <io/font.h>
 
 // Set the base revision to 3, this is recommended as this is the latest
 // base revision described by the Limine boot protocol specification.

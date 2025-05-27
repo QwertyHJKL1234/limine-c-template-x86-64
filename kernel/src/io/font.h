@@ -1,19 +1,5 @@
-#ifndef IO_H
-#define IO_H
-#include <stdint.h>
-#include <stddef.h>
-#include <stdbool.h>
-#include <limine.h>
-extern struct limine_framebuffer_response framebuffer_response;
-void printchar(struct limine_framebuffer *fb, char c, uint32_t color);
-void println(struct limine_framebuffer *fb, const char *str, uint32_t color);
-void print(struct limine_framebuffer *fb, const char *str, uint32_t color);
-void putpixel(struct limine_framebuffer *fb, size_t x, size_t y, uint32_t color);
-void printEmptyln(struct limine_framebuffer *fb);
-void printEmpty(struct limine_framebuffer *fb);
-void clear_screen(struct limine_framebuffer *fb, uint32_t color);
-size_t getScreenWidth(struct limine_framebuffer *fb);
-void printBreakLine(struct limine_framebuffer *fb, const char *str, uint32_t color);
+#ifndef FONT_H
+#define FONT_H
 // A very basic font: 0-9, A-Z, and the following characters: . , / ? : ; ' " [ ] ! @ # $ * ( )
 static const unsigned char font[128][8] = {
     { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},   // U+0000 (nul)
