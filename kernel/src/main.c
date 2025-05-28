@@ -2,8 +2,9 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include <limine.h>
-#include <io/io.h>
-#include <io/font.h>
+#include <drivers/io.h>
+#include <drivers/font.h>
+#include <drivers/interrupts/idt.h>
 
 // Set the base revision to 3, this is recommended as this is the latest
 // base revision described by the Limine boot protocol specification.
@@ -58,6 +59,7 @@ void kmain(void) {
     }
     // Fetch the first framebuffer.
     struct limine_framebuffer *framebuffer = framebuffer_request.response->framebuffers[0];
+    initialize_idt();
     println(framebuffer, "Framebuffer fetched.", 0xffffff);
     startTests(framebuffer);
     // We're done, just hang...

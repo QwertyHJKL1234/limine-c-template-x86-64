@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <limine.h>
 extern struct limine_framebuffer_response framebuffer_response;
+inline void outb(unsigned short port, unsigned char val);
 void printchar(struct limine_framebuffer *fb, char c, uint32_t color);
 void println(struct limine_framebuffer *fb, const char *str, uint32_t color);
 void print(struct limine_framebuffer *fb, const char *str, uint32_t color);
